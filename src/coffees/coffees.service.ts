@@ -25,16 +25,6 @@ export class CoffeesService {
   }
 
   create(createCoffeeDto: any) {
-    if (
-      !(
-        createCoffeeDto.name &&
-        createCoffeeDto.brand &&
-        createCoffeeDto.flavors
-      )
-    ) {
-      throw new NotFoundException('Invalid data');
-    }
-
     const newCoffee = { id: this.coffees.length + 1, ...createCoffeeDto };
     this.coffees.push(newCoffee);
     return newCoffee;
